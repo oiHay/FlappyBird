@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private float jumpForce = 10f;
+
+    private Rigidbody2D rb2d;
+    private PlayerInput playerInput;
+
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnJump(InputAction.CallbackContext context)
     {
-        
+        rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 }
