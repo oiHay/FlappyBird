@@ -1,0 +1,13 @@
+:root {
+}
+
+.close_btn {
+}
+
+.close_btn:hover {
+    scale: 1.2 1.2;
+    transition-property: scale;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.35s;
+    background-color: rgb(177, 0, 0);
+}
