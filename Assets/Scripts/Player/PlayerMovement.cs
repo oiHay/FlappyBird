@@ -14,6 +14,20 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
     }
 
+    void Update()
+    {
+        if (!CountDownTimer.movementLocked)
+        {
+            rb2d.gravityScale = 2;
+            playerInput.enabled = true;
+        }
+        else
+        {
+            rb2d.gravityScale = 0;
+            playerInput.enabled = false;
+        }
+    }
+
     public void OnJump(InputAction.CallbackContext context)
     {
         rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
