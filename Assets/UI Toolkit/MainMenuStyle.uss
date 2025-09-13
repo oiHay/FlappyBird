@@ -9,6 +9,7 @@
     justify-content: flex-start;
     align-items: stretch;
     align-content: flex-start;
+    color: rgb(255, 255, 255);
 }
 
 .button {
