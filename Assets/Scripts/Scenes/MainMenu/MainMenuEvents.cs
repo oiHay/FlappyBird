@@ -6,6 +6,7 @@ public class MainMenuEvents : MonoBehaviour
 {
     private UIDocument document;
 
+    private VisualElement mainPanel;
     private VisualElement settingsPanel;
     private VisualElement deathPanel;
 
@@ -18,13 +19,11 @@ public class MainMenuEvents : MonoBehaviour
     private Button Death_MainMenuBtn;
 
 
-    private Button btnTest;
-
-
     private void Awake()
     {
         document = GetComponent<UIDocument>();
 
+        mainPanel = document.rootVisualElement.Q("Menu");
         settingsPanel = document.rootVisualElement.Q("SettingsPanel");
         deathPanel = document.rootVisualElement.Q("DeathPanel");
 
@@ -45,9 +44,6 @@ public class MainMenuEvents : MonoBehaviour
 
         Death_MainMenuBtn = document.rootVisualElement.Q("MainMenuBtn") as Button;
         Death_MainMenuBtn.RegisterCallback<ClickEvent>(BacktoMain);
-
-        btnTest = document.rootVisualElement.Q("testBtn") as Button;
-        btnTest.RegisterCallback<ClickEvent>(OnDying);
     }
 
     private void OnDisable()
@@ -59,6 +55,7 @@ public class MainMenuEvents : MonoBehaviour
 
     private void OnPlayGameClick(ClickEvent evt)
     {
+        mainPanel.style.display = DisplayStyle.None;
         LoadNextLevel();
     }
 
@@ -79,7 +76,7 @@ public class MainMenuEvents : MonoBehaviour
         settingsPanel.style.display = DisplayStyle.None;
     }
 
-    private void OnDying(ClickEvent evt)
+    public void OnDying()
     {
         if (deathPanel != null)
             deathPanel.style.display = DisplayStyle.Flex;
@@ -87,12 +84,15 @@ public class MainMenuEvents : MonoBehaviour
 
     private void OnTrying(ClickEvent evt)
     {
+        deathPanel.style.display = DisplayStyle.None;
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
 
     private void BacktoMain(ClickEvent evt)
     {
+        deathPanel.style.display = DisplayStyle.None;
         SceneManager.LoadScene("MainMenu");
+        mainPanel.style.display = DisplayStyle.Flex;
     }
 }

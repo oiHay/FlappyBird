@@ -38,3 +38,17 @@
     background-color: rgb(108, 37, 89);
     color: rgb(255, 255, 255);
 }
+
+.slider {
+    font-size: 20px;
+    -unity-font-style: normal;
+    -unity-text-align: upper-left;
+    margin-top: 0%;
+    margin-right: 0%;
+    margin-bottom: 10%;
+    margin-left: 0%;
+    padding-top: 0%;
+    padding-right: 0%;
+    padding-bottom: 0%;
+    padding-left: 0%;
+}

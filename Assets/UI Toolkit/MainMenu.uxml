@@ -6,7 +6,6 @@
             <ui:Label text="Main Menu&#10;" name="GameTitle" class="header" style="margin-bottom: 20%; margin-top: 4%; margin-left: 2%; margin-right: 2%; padding-top: 4%; padding-right: 2%; padding-bottom: 4%; padding-left: 2%;" />
             <ui:Button text="Start" name="StartGameButton" class="button" style="margin-top: 0;" />
             <ui:Button text="Settings" name="Settings" class="button" />
-            <ui:Button text="Death" name="testBtn" class="button" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="DeathPanel" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; display: none;">
@@ -20,7 +19,12 @@
     <ui:VisualElement name="SettingsPanel" style="flex-grow: 1; position: absolute; flex-basis: 0%; flex-shrink: 1; width: 100%; height: 100%; display: none;">
         <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(190, 186, 186); -unity-background-image-tint-color: rgb(10, 0, 0); flex-basis: 0%; margin-top: 30%; margin-right: 10%; margin-bottom: 30%; margin-left: 10%; padding-top: 15%; padding-right: 10%; padding-bottom: 15%; padding-left: 10%;">
             <ui:Label text="Settings" name="Settings_TXT" style="font-size: 60%; align-items: center; justify-content: center; align-self: center; -unity-text-align: upper-center;" />
-            <ui:Button text="X" name="QuitSettings" class="close_btn" style="position: absolute; top: -3%; left: 89%; right: -4%; bottom: 97%; -unity-font-style: bold; color: rgb(255, 255, 255); font-size: 24px; background-color: rgb(255, 8, 8);" />
+            <ui:VisualElement name="AudioContainer" style="flex-grow: 1; margin-top: 10%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; padding-top: 0%; padding-right: 0%; padding-bottom: 0%; padding-left: 0%; flex-direction: column; align-items: stretch; align-content: flex-start;">
+                <ui:Slider label="Global Volume" value="42" high-value="100" name="GlobalSlider" class="slider" style="flex-direction: row;" />
+                <ui:Slider label="Music Volume" value="42" high-value="100" name="MusicSlider" class="slider" />
+                <ui:Slider label="SFX Volume" value="42" high-value="100" name="SFXSlider" class="slider" />
+            </ui:VisualElement>
+            <ui:Button text="Back" name="QuitSettings" class="close_btn button" style="position: relative; top: 0%; left: 0%; right: 0%; bottom: 0%; -unity-font-style: bold; color: rgb(0, 0, 0); font-size: 24px; background-color: rgb(255, 255, 255);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
