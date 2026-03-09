@@ -1,3 +1,4 @@
+using Manager;
 using UnityEngine;
 
 namespace Player
@@ -6,21 +7,20 @@ namespace Player
     {
         [Header("Components References")]
         [SerializeField] private PlayerController playerController;
-        [SerializeField] private GameObject deathScreen;
         
         [Header("Death Settings")]
         [SerializeField] private float timeDestruction;
         
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Wall"))
+            if (!collision.gameObject.CompareTag("Wall"))
             {
-                Debug.Log("Player hit wall");
-                playerController.enabled = false;
-                Destroy(this.gameObject, timeDestruction);
-                
-                deathScreen.SetActive(true);
+                return;
             }
+            
+            playerController.enabled = false;
+            GameManager.Instance.GameOver();
+            Destroy(gameObject, timeDestruction);
         }
     }
 }
