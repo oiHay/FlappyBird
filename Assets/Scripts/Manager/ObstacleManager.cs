@@ -8,9 +8,7 @@ namespace Manager
         [Header("Obstacle Components References")] 
         [SerializeField] private GameObject obstaclePrefab;
         
-        [Header("Settings")] 
-        [SerializeField] private float initialCoolDown;
-        
+        private float initialCoolDown;
         private float coolDown;
         private bool canSpawn;
 
@@ -28,6 +26,7 @@ namespace Manager
 
         private void Start()
         {
+            initialCoolDown = (3 - (ScoreManager.Score / 10f));
             coolDown = initialCoolDown;
             canSpawn = true;
         }

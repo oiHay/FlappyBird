@@ -13,14 +13,18 @@ namespace Player
         
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!collision.gameObject.CompareTag("Wall"))
-            {
-                return;
+            if (collision.gameObject.CompareTag("Wall"))
+            { 
+                playerController.enabled = false;
+                GameManager.Instance.GameOver();
+                Destroy(gameObject, timeDestruction);
             }
             
-            playerController.enabled = false;
-            GameManager.Instance.GameOver();
-            Destroy(gameObject, timeDestruction);
+            if(collision.gameObject.CompareTag("Score"))
+            {
+                ScoreManager.HandleScoreChanged();
+            }
+
         }
     }
 }
